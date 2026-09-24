@@ -12,12 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6-beta
-    - name: install node
-      uses: actions/setup-node@v4
+    - uses: pnpm/setup@v1
       with:
-        node-version: 24.x
-        cache: 'npm'
-    - run: npm i -g pnpm@v10
+        version: 10
+        runtime: node@24
+        cache: true
     - run: pnpm ci
     - run: pnpm run build
     - name: Upload GitHub Pages artifact
