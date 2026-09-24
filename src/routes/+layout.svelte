@@ -9,3 +9,9 @@
 </svelte:head>
 
 {@render children()}
+
+<style>
+	:root {
+		font-family: 'Roboto', sans-serif;
+	}
+</style>

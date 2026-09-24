@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="32" y1="0" x2="32" y2="64" id="gradient-1" gradientTransform="matrix(0.813549, -0.581498, 0.746405, 1, -16.780283, 18.607773)">
+      <stop offset="0" style="stop-color: rgb(18, 93, 196);"></stop>
+      <stop offset="1" style="stop-color: rgb(150, 77, 203);"></stop>
+    </linearGradient>
+    <filter id="drop-shadow-filter-0" bx:preset="drop-shadow 1 2 1 0 1 #0000007f" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0"></feGaussianBlur>
+      <feOffset dx="2" dy="1"></feOffset>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="2"></feFuncA>
+      </feComponentTransfer>
+      <feFlood flood-color="#0000007f"></feFlood>
+      <feComposite in2="offsetblur" operator="in"></feComposite>
+      <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+    <bx:export>
+      <bx:file format="png" width="512" height="512"></bx:file>
+    </bx:export>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="32" cy="32" r="32" id="gradient-0" gradientTransform="matrix(1.017738, -1.017738, 1.017738, 1.017738, -33.135368, 31.999855)">
+      <stop offset="0" style="stop-color: rgb(0, 0, 0)"></stop>
+      <stop offset="0.635" style="stop-color: rgb(54, 54, 54);"></stop>
+      <stop offset="1" style="stop-color: rgb(0% 0% 0%)"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" style="fill: url(#gradient-1); stroke-width: 1;"></rect>
+  <path d="M 0 0 L 64 0 L 64 64 L 0 64 L 0 0 Z M 32 2 C 15.431 2 2 15.431 2 32 C 2 48.569 15.431 62 32 62 C 48.569 62 62 48.569 62 32 C 62 15.431 48.569 2 32 2 Z" style="mix-blend-mode: soft-light; stroke-width: 1;"></path>
+  <path d="M 0 0 L 64 0 L 64 64 L 0 64 L 0 0 Z M 32 2 C 15.431 2 2 15.431 2 32 C 2 48.569 15.431 62 32 62 C 48.569 62 62 48.569 62 32 C 62 15.431 48.569 2 32 2 Z" style="mix-blend-mode: overlay; fill: url(#gradient-0); stroke-width: 1;"></path>
+</svg>
