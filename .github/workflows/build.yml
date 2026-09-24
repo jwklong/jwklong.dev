@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6-beta
-    - uses: pnpm/setup@v1
+    - uses: pnpm/action-setup@v6
       with:
         version: 10
-        runtime: node@24
         cache: true
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 24
     - run: pnpm ci
     - run: pnpm run build
     - name: Upload GitHub Pages artifact
