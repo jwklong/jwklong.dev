@@ -16,7 +16,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 24.x
-        cache: 'pnpm'
+        cache: 'npm'
+    - run: npm i -g pnpm@v10
     - run: pnpm ci
     - run: pnpm run build
     - name: Upload GitHub Pages artifact
