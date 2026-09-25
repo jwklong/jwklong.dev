@@ -23,6 +23,7 @@
             </a>
         </div>
     </div>
+    <a class="source" href="https://github.com/jwklong/jwklong.dev" target="_blank">view source</a>
 </div>
 
 <style>
@@ -64,5 +65,15 @@
     }
     .socials img:active {
         transform: scale(0.8);
+    }
+
+    .source {
+        position: absolute;
+        left: 8px;
+        bottom: 4px;
+        font-size: 1rem;
+        color: #888;
+        text-decoration: none;
+        font-weight: 400;
     }
 </style>
