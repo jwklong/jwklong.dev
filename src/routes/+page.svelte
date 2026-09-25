@@ -57,5 +57,12 @@
         height: 32px;
         aspect-ratio: 1;
         object-fit: contain;
+        transition: transform 0.1s;
+    }
+    .socials img:hover {
+        transform: scale(1.2);
+    }
+    .socials img:active {
+        transform: scale(0.8);
     }
 </style>
