@@ -29,6 +29,8 @@
 <style>
     .root {
         display: flex;
+        flex-wrap: wrap;
+        align-content: center;
         align-items: center;
         justify-content: center;
         width: 100%;
