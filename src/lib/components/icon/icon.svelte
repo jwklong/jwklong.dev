@@ -1,25 +1,30 @@
 <script>
     import { onMount } from 'svelte';
     import bgIcon from './bg.svg';
-    import fgIcon from './fg.svg';
+    import fgFrontIcon from './fg-front.svg';
+    import fgBackIcon from './fg-back.svg';
 
     let {
         size = "0px"
     } = $props();
 
-    /** @type {HTMLImageElement} */
-    let fgElement;
+    /** @type {HTMLDivElement} */ let fgElement;
+    /** @type {HTMLImageElement} */ let fgFrontElement;
+    /** @type {HTMLImageElement} */ let fgBackElement;
     onMount(() => {
         let listener = e => {
-            let cx = fgElement.x + fgElement.width / 2;
-            let cy = fgElement.y + fgElement.height / 2;
+            let rect = fgElement.getBoundingClientRect();
 
-            let dx = (e.clientX - cx) / fgElement.width;
+            let cx = rect.x + rect.width / 2;
+            let cy = rect.y + rect.height / 2;
+
+            let dx = (e.clientX - cx) / rect.width;
             dx = dx / Math.sqrt(Math.abs(dx)) || 0;
-            let dy = (e.clientY - cy) / fgElement.height;
+            let dy = (e.clientY - cy) / rect.height;
             dy = dy / Math.sqrt(Math.abs(dy)) || 0;
 
-            fgElement.style.transform = `rotateY(${dx*15}deg) rotateX(${dy*15}deg)`
+            fgFrontElement.style.transform = `rotateY(${dx*15}deg) rotateX(${-dy*15}deg) translateZ(calc(${size} / 64))`;
+            fgBackElement.style.transform = `rotateY(${dx*15}deg) rotateX(${-dy*15}deg) translateZ(calc(${size} / -64))`;
         }
 
         addEventListener('mousemove', listener);
@@ -27,20 +32,25 @@
     })
 </script>
 
-<div style:height={size}>
+<div class="root" style:height={size}>
     <img src={bgIcon} alt="" />
-    <img bind:this={fgElement} src={fgIcon} class="fg" alt="" />
+    <div bind:this={fgElement}>
+        <img bind:this={fgBackElement} src={fgBackIcon} alt="" />
+        <img bind:this={fgFrontElement} src={fgFrontIcon} alt="" />
+    </div>
 </div>
 
 <style>
-    div {
+    .root {
         aspect-ratio: 1;
         position: relative;
         overflow: hidden;
         border-radius: 10%;
     }
     
-    img {
+    .root * {
         position: absolute;
+        height: 100%;
+        aspect-ratio: 1;
     }
 </style>
