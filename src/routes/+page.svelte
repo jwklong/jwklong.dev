@@ -50,7 +50,8 @@
         margin: 0;
     }
 
-    .socials {
+    .socials, .socials a {
+        display: inline-block;
         height: 32px;
     }
 
